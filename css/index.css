@@ -910,7 +910,8 @@ body{
 	transition: all .5s;
 }
 .home .content_ten .right_product .bottom p{
-	height: 50%;
+	height: 65%;
+	margin-top: 3px;
 }
 .home .content_ten .right_product .bottom p a{
 	color: #fff;
