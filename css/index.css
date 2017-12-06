@@ -150,22 +150,25 @@ main{
 }
 .nav-box-li-a:hover{
 	color: #ff6700;
-}
+}/* 
 .nav-box-li .con-active{
 	display: block;
-}
+} */
 .nav-child-box{
-	display: none;
+	/* display: none; */
+	height: 0;
+	overflow: hidden;
 	position: absolute;
     top: 140px;
     left: 0;
     z-index: 24;
     width: 100%;
-    height: 229px;
+    /* height: 229px; */
     border-top: 1px solid #e0e0e0;
     background: #fff;
 	box-shadow: 0 3px 4px rgba(0,0,0,0.18);
-	transition: box-shadow .2s;
+	/* opacity: 0; */
+	transition: all .2s;
 }
 .nav-child{
 	width: 1226px;
@@ -174,6 +177,7 @@ main{
     position: relative;
 }
 .nav-child-items{
+	overflow: hidden;
 	margin: 0;
     padding: 0;
     list-style-type: none;
@@ -762,7 +766,6 @@ main{
 .star-right .icon-you:hover{
 	color: #ff6700;
 }
-/* 商品展示 */
 .star-shop{
 	width: 1226px;
 	height: 380px;
@@ -856,19 +859,15 @@ main{
 	background: #f5f5f5;
 }
 /* 家电 */
-.main-box1{
-	width: 100%;
-	height: 672px;
-	background: #f5f5f5;
-	padding-top: 60px;
-	margin: 0 auto;
-}
 .main-box{
 	width: 100%;
 	height: 672px;
 	background: #f5f5f5;
 	margin: 0 auto;
 	margin-top: 22px;
+}
+.main-box1{
+	padding-top: 60px;
 }
 .main-word{
 	width: 1226px;
@@ -905,9 +904,10 @@ main{
 	float: left;
 	background: #f5f5f5;
 	margin-left: 30px;
-	border-bottom: 2px solid #f5f5f5;
+	border-bottom: 2px solid transparent;
 	color: #424242;
 	font-size: 16px;
+	transition: border-color .5s;
 }
 .main-word ul li .max{
 	width: 64px;
@@ -949,6 +949,10 @@ main{
 	height: 614px;
 	background: #f5f5f5;
 	float: right;
+	display: none;
+}
+.mi-shop{
+	display: block;
 }
 .household-shop1{
 	width: 234px;
@@ -981,7 +985,7 @@ main{
 }
 .small-box .p2{
 	color: #fff;
-	font-size: 12px;
+	font-size: 6px;
 	padding-top: 10px;
 	padding-left: 10px;
 }
