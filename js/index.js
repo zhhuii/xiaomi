@@ -50,13 +50,14 @@ window.onload = function(){
 	// 		height：0；
 	// 6、移入导航是操作选项卡的高度
 	let dh = document.querySelector('.nav-box');
-	console.log(dh)
+	// console.log(dh)
 	let dbh = document.querySelector('.nav-child-box');
-	console.log(dbh)
+	// console.log(dbh)
 	let items = dh.getElementsByClassName('nav-box-lili');
 	let item = dh.getElementsByClassName('nblik');
 	let nc = dbh.getElementsByClassName('nav-child');
 	dh.onmouseover = function(){
+		dbh.style.cssText = 'box-shadow: 0 3px 4px rgba(0,0,0,0.18);border-top: 1px solid #e0e0e0;';
 		dbh.style.height = 230 + 'px';
 	}
 	for(let i = 0; i < items.length;i++){
@@ -70,10 +71,12 @@ window.onload = function(){
 	for(let i = 0;i < item.length;i++){
 		item[i].onmousemove = function(){
 			dbh.style.height = 0 + 'px';
+			dbh.style.cssText = 'box-shadow: 0 0px 0px rgba(0,0,0,0);border-top: 0 solid #e0e0e0;';
 		}		
 	}
 	dh.onmouseout = function(){
 		dbh.style.height = 0 + 'px';
+		dbh.style.cssText = 'box-shadow: 0 0px 0px rgba(0,0,0,0);border-top: 0 solid #e0e0e0;';
 	}
 	//侧导航
 	let title = document.getElementsByClassName('aside-nav-ul-li');
@@ -118,4 +121,99 @@ window.onload = function(){
 			}
 		}
 	}
+		// 1、初始化
+	// 	第一个透明度1
+	// 	其余为0
+	// 2、获取元素 	
+	// 		图片	img-list>li
+	// 		大盒子	ul
+	// 		轮播点	.banner-dian>li
+	// 3、让图片自动播放
+	// 	开启时间函数
+	// 	声明一个控制当前显示图片下标的变量
+	// 	遍历图片，控制图片的透明度
+	// 	now++
+	// 	鼠标移入大盒子，消除时间函数
+	//4、轮播点控制图片的切换
+	//5、左右箭头		右箭头：now++		if(now == box.length) now=0;
+	//				左箭头：now--		if(now < 0)  now = box.length-1
+	let box = document.querySelectorAll('.img-list>li');
+	let bos = document.querySelector('.banner');
+	var now = 0;
+	var t = setInterval(lunbo,2000);
+	let zuojiantou = document.querySelector('.banner-left');
+	let youjiantou = document.querySelector('.banner-right');
+	let dian = document.querySelectorAll('.btn-list>li');
+	function lunbo(type){
+		type = type || 'you';
+		if(type == 'you'){
+			now++;
+			if(now == box.length){
+				now =0;
+			}
+		}else if(type == 'zuo'){
+			now--;
+			if(now < 0){
+				now =box.length-1;
+			}
+		};
+		for(let i = 0;i < box.length;i++){
+			box[i].style.opacity = '0';
+			dian[i].style.backgroundColor = '#17171c';
+
+		};
+		box[now].style.opacity = '1';
+		dian[now].style.backgroundColor = '#fff';
+	};
+	bos.onmouseover = function(){
+		clearInterval(t);
+	};
+	bos.onmouseout = function(){
+		t = setInterval(lunbo,2000);
+	};
+	dian.forEach(function(ele,index){
+		ele.addEventListener('click',function(){
+			for(let i = 0;i < box.length;i++){
+				box[i].style.opacity = '0';
+				dian[i].style.backgroundColor = '#fff';
+			};
+			clearInterval(t);
+			box[index].style.opacity = '1';
+			dian[index].style.backgroundColor = 'rgba(0,0,0,0.4)';
+			now = index;
+		})
+	});
+	zuojiantou.onclick = function () {
+		lunbo('zuo');
+	};
+	youjiantou.onclick = function () {
+		lunbo('you');
+	};
+//	节点轮播
+    let bottom = document.querySelector('.star-shop');
+    let rbtn = document.querySelector('.star-right2');
+    let lbtn = document.querySelector('.star-right1');
+    let widths = bottom.firstElementChild.offsetWidth;
+    let rights = parseInt(getComputedStyle(bottom.firstElementChild,null).marginRight);
+    let count = bottom.childElementCount;
+    bottom.style.width = count * (widths + rights) + 'px';
+    let nun = 0;
+    rbtn.onclick =function(){
+        if(nun == 1){
+            rbtn.classList.add('star-right-active');
+            lbtn.classList.remove('star-right-active');
+            return;
+        }
+        nun++;
+        bottom.style.transform = `translateX(${-1226*nun}px)`
+    }
+    lbtn.onclick =function(){
+        if(nun == 0){
+            rbtn.classList.remove('star-right-active');
+            lbtn.classList.add('star-right-active');
+            return;
+        }
+        nun--;
+        bottom.style.transform = `translateX(${-1226*nun}px)`
+    }
 }
