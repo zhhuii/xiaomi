@@ -164,9 +164,9 @@ main{
     z-index: 24;
     width: 100%;
     /* height: 229px; */
-    /*border-top: 1px solid #e0e0e0;*/
+    border-top: 1px solid #e0e0e0;
     background: #fff;
-	/*box-shadow: 0 3px 4px rgba(0,0,0,0.18);*/
+	box-shadow: 0 3px 4px rgba(0,0,0,0.18);
 	/* opacity: 0; */
 	transition: all .2s;
 }
@@ -360,10 +360,12 @@ main{
 .img-list li{
 	width: 1226px;
 	height: 460px;
+	background: #fff;
 	position: absolute;
 	top: 0;
 	left: 0;
-	transition: all .6s;
+	opacity: 0;
+	transition: all .5s;
 }
 .img-list li a{
 	width: 1226px;
@@ -375,6 +377,9 @@ main{
 	display: inline-block;
 	width: 100%;
 	height: 100%;
+}
+.img-list .img-active{
+	opacity: 1;
 }
 /* 左右方向 */
 .banner-left{
@@ -388,7 +393,6 @@ main{
 	margin-bottom: auto;
 	left:243px;
 	background: url('../img/icon-slides.png') no-repeat -83px 0;
-	cursor: pointer;
 }
 .banner-left:hover{
 	left:243px;
@@ -403,19 +407,18 @@ main{
 	bottom: 0;
 	margin-top: auto;
 	margin-bottom: auto;
-	right:0;
+	right:0px;
 	background: url('../img/icon-slides.png') no-repeat -125px 0;
-	cursor: pointer;
 }
 .banner-right:hover{
-	right:0;
+	right:0px;
 	background: url('../img/icon-slides.png') no-repeat -42px 0;
 }
 /* 侧导航 */
 .aside-nav{
 	width: 243px;
 	height: 460px;
-	background: rgba(0,0,0,0.6);
+	background: rgba(0, 0, 0, 0.6);
 	position: absolute;
 	float: left;
 	top: 0;
@@ -457,7 +460,7 @@ main{
 }
 .aside-nav-shop{
 	position: absolute;
-	height: 454px;
+	height: 460px;
 	padding: 2px 0;
 	border:1px solid #efefef;
 	border-left: none;
@@ -538,9 +541,6 @@ main{
 	border-radius: 50%;
 	margin-right: 10px;
 	border: 1px solid #5c5c5f;
-}
-.btn-list li:first-child{
-	background-color: #fff;
 }
 .btn-list li:hover{
 	background: #7c7c81;
@@ -714,7 +714,6 @@ main{
 	height: 438px;
 	background: #ffffff;
 	margin: 0 auto;
-	overflow: hidden;
 }
 .star-word{
 	width: 1226px;
@@ -743,25 +742,20 @@ main{
 	border: 1px solid #e0e0e0;
 	margin-top: 24px;
 }
-.star-right-active{
-	color: #e0e0e0;
-}
 .star-right1{
 	width: 34px;
 	height: 22px;
 	float: left;
 	background: #fff;
-	display: block;
 	border-right: 1px solid #e0e0e0;
 	text-align: center;
 	line-height: 22px;
 	color: #e0e0e0;
 	font-size: 22px;
-	cursor: pointer;
 }
-/*.star-right .icon-zuo:hover{*/
-	/*color: #ff6700;*/
-/*}*/
+.star-right .icon-zuo:hover{
+	color: #ff6700;
+}
 .star-right2{
 	width: 34px;
 	height: 22px;
@@ -770,17 +764,22 @@ main{
 	display: block;
 	text-align: center;
 	line-height: 22px;
+	color: #cdcac8;
 	font-size: 22px;
-	cursor: pointer;
 }
-/*.star-right .icon-you:hover{*/
-	/*color: #ff6700;*/
-/*}*/
+.star-right .icon-you:hover{
+	color: #ff6700;
+}
+.star-shop-box{
+	width: 1226px;
+	height: 380px;
+	background: #fff;
+	overflow: hidden;
+}
 .star-shop{
 	width: 1226px;
 	height: 380px;
 	background: #fff;
-	transition: all .5s;
 }
 .star-shop1{
 	width: 234px;
@@ -1235,7 +1234,6 @@ main{
 	height: 58px;
 	background: #f5f5f5;
 	margin: 0 auto;
-	float: left;
 	padding-left: 14px;
 }
 .recommend-left{
@@ -1251,10 +1249,14 @@ main{
 	color: #333333;
 	font-weight: 200;
 }
+.recomment-shop-box{
+	width: 1240px;
+	height: 314px;
+	overflow: hidden;
+}
 .recommend-shop{
 	width: 1240px;
 	height: 314px;
-	float: left;
 	margin: 0 auto;
 	background: #f5f5f5;
 }
@@ -1265,8 +1267,8 @@ main{
 	margin: 0 auto;
 	background: #fff;
 	margin-left: 14px;
-	position: relative;
     transition:all 0.2s;
+    margin-bottom: 14px;
 }
 .recommend-shop1:hover{
 	transform:translateY(-2px);
@@ -1419,9 +1421,9 @@ main{
 	padding-top: 45px;
 	border-top: 1px solid #ffac13;
 	margin: 0 0 14px 14px;
-    transition:all 0.2s;
-    position: relative;
-    overflow: hidden;
+	transition:all 0.2s;
+	position: relative;
+	overflow: hidden;
 }
 .border1{
 	border-top: 1px solid #83c44e;
@@ -1436,10 +1438,19 @@ main{
 	transform:translateY(-2px);
 	box-shadow:0px 5px 5px 5px rgba(175,175,175,0.2);
 }
+.content-shop1 .con-box-box{
+	width: 296px;
+	/* float: left; */
+	margin: 0 auto;
+	margin-bottom: 18px;
+	text-align: center;
+	/* line-height: 24px; */
+	font-size: 15px;
+	color: #ffac13;
+	transition: all 1s;
+}
 .content-shop1 div{
 	width: 296px;
-	height: 24px;
-	float: left;
 	margin: 0 auto;
 	margin-bottom: 18px;
 	text-align: center;
@@ -1456,12 +1467,22 @@ main{
 .content-shop1 .title3{
 	color: #2196f3;
 }
+.content-shop1 .con-box{
+	width: 296px;
+	float: left;
+	margin: 0 auto;
+	margin-bottom: 18px;
+	text-align: center;
+	line-height: 24px;
+	font-size: 15px;
+	color: #ffac13;
+}
 .content-shop1 .name{
 	display: block;
 	width: 296px;
 	height: 24px;
 	background: #fff;
-	float: left;
+	/* float: left; */
 	margin: 0 auto;
 	margin-bottom: 5px;
 	text-align: center;
@@ -1474,7 +1495,7 @@ main{
 	width: 200px;
 	height: 40px;
 	background: #fff;
-	float: left;
+	/* float: left; */
 	margin: 0 auto;
 	margin: 0 48px 10px 48px;
 	text-align: center;
@@ -1482,12 +1503,15 @@ main{
 	font-size: 12px;
 	color: #b0b0b0;
 }
+.buttom-active{
+	color: #ccc;
+	background-color: #ccc;
+}
 .content-shop1 .price{
 	display: block;
 	width: 276px;
 	height: 21px;
 	background: #fff;
-	float: left;
 	margin: 0 10px 15px 10px;
 	color: black;
 	text-align: center;
@@ -1507,7 +1531,7 @@ main{
 	width: 100%;
 	height: 100%;
 }
-.small-box-left{
+.content-shop .small-box-left{
 	display: block;
 	width: 22px;
 	height: 34px;
@@ -1518,7 +1542,7 @@ main{
 	top:0;
 	bottom:0;
 	margin-top:auto;
-	margin-bottom:auto; 
+	margin-bottom:auto;
 	float: left;
 	transition:all 0.6s;
 	text-align: center;
@@ -1526,7 +1550,7 @@ main{
 .content-shop1:hover .small-box-left{
 	left: 0;
 }
-.small-box-right{
+.content-shop .small-box-right{
 	display: block;
 	width: 22px;
 	height: 34px;
@@ -1537,7 +1561,7 @@ main{
 	top:0;
 	bottom:0;
 	margin-top:auto;
-	margin-bottom:auto; 
+	margin-bottom:auto;
 	float: right;
 	transition:all 0.6s;
 	text-align: center;
@@ -1547,11 +1571,13 @@ main{
 }
 .content-shop1 .icon-zuo{
 	font-size: 30px;
-	color: #fff;
+	height: 24px;
+	/* color: #fff; */
 }
 .content-shop1 .icon-you{
 	font-size: 30px;
-	color: #fff;
+	height: 24px;
+	/* color: #fff; */
 }
 .content-shop1 .anniu{
 	width: 102px;
@@ -1560,7 +1586,7 @@ main{
 	float: left;
 	margin: 0 97px 15px 97px;
 	position: absolute;
-	top: 375px;
+	top: 350px;
 }
 .content-shop1 .anniu li .anniu2{
 	display: block;
