@@ -208,7 +208,6 @@ window.onload = function(){
 	let rbtn = document.querySelector(".star-right2");
 	let widths = bottom.firstElementChild.offsetWidth;
 	let rights = parseInt(getComputedStyle(bottom.firstElementChild,null).marginRight);
-	console.log(rights)
 	let count = bottom.childElementCount;
 	bottom.style.width = count*(widths + rights) + 'px'; 
 
@@ -238,11 +237,13 @@ window.onload = function(){
 	let rrbtn = document.querySelector(".r-right2");
 	let rwidths = rbottom.firstElementChild.offsetWidth;
 	let rlefts = parseInt(getComputedStyle(rbottom.firstElementChild,null).marginLeft);
-
+	let neirongdian = document.querySelectorAll('.anniu>li')[0];
 	let rcount = rbottom.childElementCount;
-	rbottom.style.width = rcount*(rwidths + rlefts) + 'px'; 
-	console.log(rwidths,rlefts,rcount)
+	rbottom.style.width = rcount*(rwidths + rlefts) + 'px';
 	let rnum = 0;
+	for(let w =0;w < neirongdian.length;w++){
+		neirongdian[w].aa =w;
+	}
 	rrbtn.onclick = function(){
 		if(rnum == 2){
 			rrbtn.className = 'star-right2';
@@ -261,6 +262,7 @@ window.onload = function(){
 		rnum--;
 		rbottom.style.transform = `translateX(${-1240*rnum}px)`;
 	}
+	//内容
 	let neirongbox = document.querySelector('.con-box-box');
 	let rightanniu = document.querySelector('.small-box-right');
 	let leftanniu = document.querySelector('.small-box-left');

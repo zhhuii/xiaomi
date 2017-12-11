@@ -750,7 +750,7 @@ main{
 	border-right: 1px solid #e0e0e0;
 	text-align: center;
 	line-height: 22px;
-	color: #e0e0e0;
+	color: #ccc;
 	font-size: 22px;
 }
 .star-right .icon-zuo:hover{
@@ -764,7 +764,7 @@ main{
 	display: block;
 	text-align: center;
 	line-height: 22px;
-	color: #cdcac8;
+	color: #ccc;
 	font-size: 22px;
 }
 .star-right .icon-you:hover{
@@ -1235,6 +1235,12 @@ main{
 	background: #f5f5f5;
 	margin: 0 auto;
 	padding-left: 14px;
+	position: relative;
+}
+.weinituijian{
+	position: absolute;
+	top:0;
+	left:14px;
 }
 .recommend-left{
 	width: 150px;
@@ -1253,6 +1259,7 @@ main{
 	width: 1240px;
 	height: 314px;
 	overflow: hidden;
+	transition: all .5s;
 }
 .recommend-shop{
 	width: 1240px;
@@ -1456,7 +1463,10 @@ main{
 	text-align: center;
 	line-height: 24px;
 	font-size: 15px;
-	color: #ffac13;
+	color: #fff;
+}
+.tushu{
+	color: #ffac13!important;
 }
 .content-shop1 .title1{
 	color: #83c44e;
@@ -1598,6 +1608,16 @@ main{
 	border-radius: 50%;
 }
 .content-shop1 .anniu li .anniu1{
+	display: block;
+	width: 9px;
+	height: 9px;
+	background: #fff;
+	float: left;
+	margin: 9px 11px;
+	border-radius: 50%;
+	border: 1px solid #ff6700;
+}
+.content-shop1 .anniu::before{
 	display: block;
 	width: 9px;
 	height: 9px;
